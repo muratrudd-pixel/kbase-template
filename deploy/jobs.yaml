@@ -1,0 +1,7 @@
+# Scheduled jobs (used by deploy/install_launchd.py on macOS; deploy/cron.example is the Linux equivalent).
+# schedule: {minute, hour, weekday} (any omitted = every); weekday 0 = Sunday.
+ingest:      {cmd: "run ingest",     schedule: {minute: 10}}
+brief-daily: {cmd: "brief daily",    schedule: {hour: 5, minute: 13}}
+brief-offclock: {cmd: "brief offclock", schedule: {hour: 5, minute: 20}}
+lenses:      {cmd: "run lenses",     schedule: {weekday: 0, hour: 3, minute: 30}}
+whatchanged: {cmd: "whatchanged",    schedule: {weekday: 0, hour: 5, minute: 25}}

@@ -1,0 +1,23 @@
+# What the tagger knows about you and the topics it sorts items into. Edit freely — this is the single biggest
+# lever on quality. After a big change, re-tag recent items: sqlite3 index/kbase.db "UPDATE docs SET tagged=0"
+reader: |
+  Reader: a curious generalist who wants to understand the economy and the AI industry well, and likes film and
+  good long reads off the clock. Not a specialist: explain jargon the first time.
+  Relevance (r): 3 = must-know (a Fed decision or major data release, a genuinely new AI capability, a top story in
+  their interests); 2 = useful context in their topics; 1 = marginal or minor; 0 = noise, promotional, listicle,
+  duplicate-ish filler, celebrity gossip.
+
+topics:
+  economics: "US/global macro, the Fed, rates, labor, inflation, markets"
+  policy: "government and regulation (Congress, White House, courts, trade, fiscal)"
+  ai_release: "new AI models, product features, tools and launches"
+  ai_howto: "practical AI workflows, best practices, prompting, agents"
+  ai_industry: "AI business, funding, adoption, research trends, regulation"
+  tech: "software and the wider tech industry beyond AI"
+  culture: "film, music, books, art and design"
+  world: "major international news beyond economics"
+  other: "none of the above"
+
+events: [rule_or_law, data_release, product_launch, study, deal, earnings, howto, analysis, review, other]
+stale_days: 30
+beat_to_topic: {economics: economics, ai: ai_industry, culture: culture, general: other}

@@ -1,0 +1,13 @@
+# data — never commit
+archive/
+index/
+logs/
+outbox/
+.env
+config/sources_added.yaml
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

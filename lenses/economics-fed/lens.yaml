@@ -1,0 +1,21 @@
+name: Economics — the Fed and inflation
+scope: >-
+  How the Federal Reserve sets policy and what it watches; inflation, jobs and growth data as they come out;
+  Treasury yields and what moves them.
+topics: [economics]               # config/topics.yaml keys
+sids: [fed-press, liberty-street, calculated-risk]
+queries: ["FOMC decision", "inflation PCE CPI", "Treasury yields", "labor market jobs report"]
+min_rel: 2
+window_days: 30
+max_docs: 60
+min_docs: 5
+sections:                         # state.md headings
+  - What the Fed did and said
+  - Inflation and the data
+  - Jobs and growth
+  - Rates and markets
+framework_sections:               # frameworks.md headings
+  - How the Fed sets policy
+  - Reading the data releases
+  - What moves Treasury yields
+  - Key numbers to anchor on

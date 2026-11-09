@@ -1,0 +1,10 @@
+# Provenance tag per claim = the best tag among the documents it cites. primary > expert > press.
+# primary: the organisation itself or the official record (central banks, regulators, filings, company releases).
+# expert:  named practitioners and analysts (expert blogs, podcasts with transcripts, newsletters).
+# press:   everything else (news reporting, aggregators).
+primary:
+  source_types: [filing]
+  sids: [fed-press, openai-news]
+expert:
+  source_types: [transcript, newsletter]
+  sids: [liberty-street, calculated-risk, simon-willison]

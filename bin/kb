@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Run the kb CLI from anywhere: resolves the repo from this script's location and uses its .venv.
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT" && exec "$ROOT/.venv/bin/python" -m kbase "$@"

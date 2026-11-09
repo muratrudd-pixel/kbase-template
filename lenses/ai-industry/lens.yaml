@@ -1,0 +1,21 @@
+name: AI industry
+scope: >-
+  What frontier AI models can and can't do, new releases and tools worth using, working patterns that hold up,
+  and how companies are adopting AI.
+topics: [ai_release, ai_howto, ai_industry]
+sids: [openai-news, simon-willison, dwarkesh, latent-space]
+queries: ["new model release", "AI agents in practice", "LLM evaluation", "enterprise AI adoption"]
+min_rel: 2
+window_days: 30
+max_docs: 60
+min_docs: 5
+sections:
+  - Capabilities and releases
+  - Working patterns that hold up
+  - Adoption and the business of AI
+  - Risks and open problems
+framework_sections:
+  - What current models can and can't do
+  - Working patterns that hold up
+  - Tools to know
+  - How the industry makes money

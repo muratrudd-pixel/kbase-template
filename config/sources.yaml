@@ -1,0 +1,38 @@
+# Sources the knowledge base follows. Every one here is free.
+# kind: rss | google_news | podcast   (see kbase/ingest.py)
+# id:   stable short name, stored on every document (used by lenses, provenance and `kb sources`)
+# beat: your own grouping; the tagger falls back to it for link-only sources
+# Optional: every_hours (min interval), max_items, link_only: true (store links only, never send to a model),
+#           muted: true + why: "..." (stop fetching, keep the archive)
+beats: [economics, ai, culture, general]
+
+sources:
+  # --- primary: the official record ---
+  - {id: fed-press, kind: rss, name: Federal Reserve press releases, beat: economics,
+     url: "https://www.federalreserve.gov/feeds/press_all.xml"}
+  - {id: openai-news, kind: rss, name: OpenAI News, beat: ai, max_items: 30,
+     url: "https://openai.com/news/rss.xml"}
+
+  # --- expert blogs ---
+  - {id: liberty-street, kind: rss, name: Liberty Street Economics (NY Fed), beat: economics,
+     url: "https://libertystreeteconomics.newyorkfed.org/feed/"}
+  - {id: calculated-risk, kind: rss, name: Calculated Risk Newsletter, beat: economics,
+     url: "https://calculatedrisk.substack.com/feed"}
+  - {id: simon-willison, kind: rss, name: Simon Willison, beat: ai,
+     url: "https://simonwillison.net/atom/everything/"}
+
+  # --- news searches (Google News RSS; headline + publisher, full text fetched later) ---
+  - {id: gn-fed-inflation, kind: google_news, name: "Google News: Fed & inflation", beat: economics, every_hours: 3,
+     query: '("Federal Reserve" OR inflation OR "Treasury yields") when:1d'}
+
+  # --- off the clock ---
+  - {id: guardian-film, kind: rss, name: The Guardian — Film, beat: culture, max_items: 30,
+     url: "https://www.theguardian.com/film/rss"}
+  - {id: hn-frontpage, kind: rss, name: Hacker News (300+ points), beat: general,
+     url: "https://hnrss.org/frontpage?points=300"}
+
+  # --- podcasts that publish full transcripts in their feed ---
+  - {id: dwarkesh, kind: podcast, name: Dwarkesh Podcast, beat: ai, every_hours: 12,
+     url: "https://www.dwarkesh.com/feed"}
+  - {id: latent-space, kind: podcast, name: Latent Space, beat: ai, every_hours: 12,
+     url: "https://www.latent.space/feed"}

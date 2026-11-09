@@ -1,0 +1,4 @@
+# Anything matching these is never stored (checked on source, title, url and body before a document is written).
+# Use it to keep e.g. your employer's email domain or confidential project names out of the knowledge base.
+blocked_domains: []        # e.g. ["mycompany.com"]
+blocked_patterns: []       # regexes, case-insensitive, e.g. ['\bProject Falcon\b']

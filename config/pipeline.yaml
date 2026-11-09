@@ -1,0 +1,42 @@
+# Models are Claude Code CLI aliases (haiku / sonnet / opus). Cheaper model = faster + less of your usage limit.
+models:
+  tagger: haiku
+  whatchanged: sonnet
+  lenses: {state: opus, frameworks: opus, verify: haiku}
+
+index:
+  embed_model: nomic-embed-text      # local, via Ollama (optional)
+
+fulltext:
+  skip_domains: []                   # sites that block scripts; don't try to get round a block
+
+newsletters:
+  lookback_days: 3
+  link_only_senders: []              # e.g. ["@economist.com"] — stored as links, never sent to a model
+
+lenses:
+  git_commit: false                  # true = commit each lens run to git (nice audit trail)
+
+# Brief emails. topics = config/topics.yaml keys. hours = window. quotas cap items per topic group.
+briefs:
+  daily:
+    title: Daily Brief
+    model: opus
+    hours: 26
+    min_rel: 2
+    max_items: 80
+    topics: [economics, policy, ai_release, ai_howto, ai_industry, tech, world]
+    quotas: {economics: 15, policy: 10, "ai_release|ai_howto|ai_industry": 20, tech: 10, world: 10}
+    newsletters: true
+    lenses: [economics-fed, ai-industry]
+  offclock:
+    title: Off the Clock
+    model: sonnet
+    hours: 26
+    min_rel: 1
+    max_items: 40
+    min_items: 2
+    topics: [culture, tech]
+    quotas: {culture: 25, tech: 15}
+    newsletters: false
+    lenses: []

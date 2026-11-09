@@ -1,0 +1,11 @@
+# Linux (or macOS) cron alternative to launchd. `crontab -e`, then paste, replacing /path/to/kbase-template.
+# Times are local. Logs land in logs/. Make sure `claude` is on cron's PATH (or set CLAUDE_BIN in .env) and that
+# CLAUDE_CODE_OAUTH_TOKEN is in .env (`claude setup-token`) so jobs can call the model unattended.
+KB=/path/to/kbase-template
+PATH=/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin
+
+10 * * * *   cd $KB && bin/kb run ingest        >> logs/ingest.log 2>&1
+13 5 * * *   cd $KB && bin/kb brief daily       >> logs/brief-daily.log 2>&1
+20 5 * * *   cd $KB && bin/kb brief offclock    >> logs/brief-offclock.log 2>&1
+30 3 * * 0   cd $KB && bin/kb run lenses        >> logs/lenses.log 2>&1
+25 5 * * 0   cd $KB && bin/kb whatchanged       >> logs/whatchanged.log 2>&1
